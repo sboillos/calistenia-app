@@ -33,7 +33,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Verify output folder
+      - name: Verify dist exists
         run: |
           echo "Listing repo root:"
           ls -la
