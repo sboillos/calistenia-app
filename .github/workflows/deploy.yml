@@ -37,8 +37,8 @@ jobs:
         run: |
           echo "Listing repo root:"
           ls -la
-          echo "Listing dev-dist:"
-          ls -la dev-dist
+          echo "Listing dist:"
+          ls -la dist
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -46,7 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dev-dist
+          path: dist
 
   deploy:
     runs-on: ubuntu-latest
