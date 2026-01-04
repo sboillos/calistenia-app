@@ -33,13 +33,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      # DEBUG: para ver exactamente qué carpetas se generaron
-      - name: Debug output
+      - name: Verify dist exists
         run: |
-          echo "=== ROOT ==="
+          echo "Listing repo root:"
           ls -la
-          echo "=== DIST ==="
-          ls -la dist || true
+          echo "Listing dist:"
+          ls -la dist
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -47,7 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: dist
 
   deploy:
     runs-on: ubuntu-latest
