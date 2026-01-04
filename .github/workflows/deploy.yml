@@ -33,13 +33,23 @@ jobs:
       - name: Build
         run: npm run build
 
+      # 👇 DEBUG: nos dice si existe dist y dónde
+      - name: Debug build output
+        run: |
+          echo "== ROOT =="
+          ls -la
+          echo "== DIST? =="
+          ls -la dist || true
+          echo "== FIND dist folders =="
+          find . -maxdepth 3 -type d -name dist -print
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: ./dist
 
   deploy:
     runs-on: ubuntu-latest
