@@ -33,20 +33,20 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Verify dist exists
+      - name: Verify output folder
         run: |
           echo "Listing repo root:"
           ls -la
-          echo "Listing dist:"
-          ls -la dist
+          echo "Listing dev-dist:"
+          ls -la dev-dist
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact (dist)
+      - name: Upload artifact (dev-dist)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: dev-dist
 
   deploy:
     runs-on: ubuntu-latest
