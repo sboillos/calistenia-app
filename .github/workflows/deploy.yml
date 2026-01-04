@@ -33,21 +33,21 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: SPA fallback
+        run: cp dist/index.html dist/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
   deploy:
+    runs-on: ubuntu-latest
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-
-
-
