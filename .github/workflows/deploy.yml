@@ -33,15 +33,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      # 👇 DEBUG: nos dice si existe dist y dónde
-      - name: Debug build output
+      # DEBUG: para ver exactamente qué carpetas se generaron
+      - name: Debug output
         run: |
-          echo "== ROOT =="
+          echo "=== ROOT ==="
           ls -la
-          echo "== DIST? =="
+          echo "=== DIST ==="
           ls -la dist || true
-          echo "== FIND dist folders =="
-          find . -maxdepth 3 -type d -name dist -print
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
